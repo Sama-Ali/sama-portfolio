@@ -1,3 +1,3 @@
 # Sama's Portfolio
 
-[https://sama-ali.github.io/sama-portfolio/](https://sama-ali.github.io/sama-portfolio/)
+[https://sama-portfolio-nine.vercel.app/](https://sama-portfolio-nine.vercel.app/)
