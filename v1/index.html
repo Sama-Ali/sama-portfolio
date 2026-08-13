@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sama Alhelo Alballaq — Full-stack developer building thoughtful web and mobile experiences.">
+  <meta name="theme-color" content="#0b0d0c">
+  <title>Sama Alhelo — Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-intro" aria-hidden="true">
+    <div class="intro-mark">SA<span>.</span></div>
+    <div class="intro-line"><i></i></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div id="cloud-root" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand" aria-label="Sama Alhelo">
+      <img src="https://github.com/Sama-Ali.png?size=96" alt="Sama Alhelo’s profile photo">
+      <span>Sama Alhelo</span>
+    </div>
+    <a class="header-cta" href="mailto:samaali2h@gmail.com">Reach me <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell" id="about" aria-labelledby="hero-title">
+      <h1 id="hero-title">Sama’s<br><em>mindset.</em></h1>
+      <div class="hero-credentials">
+        <div class="hero-role"><span>Full-stack developer</span></div>
+        <p class="hero-degree">Bachelor of <em>Software Engineering</em></p>
+      </div>
+      <div class="hero-bottom">
+        <div class="hero-about-copy">
+          <div class="eyebrow">01 — Who I am</div>
+          <p>Software Engineering graduate with experience in full-stack web and mobile application development. Skilled in building responsive user interfaces, developing backend systems and REST APIs using modern technologies. Passionate about creating scalable solutions and continuously expanding technical expertise.</p>
+        </div>
+        <a class="circle-link" href="#work" aria-label="Explore selected work">
+          <span>Explore work</span>
+          <b aria-hidden="true">↓</b>
+        </a>
+      </div>
+      <div class="hero-index" aria-hidden="true">01 / 04</div>
+    </section>
+
+    <section class="work section-shell" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">02 — What I built</div>
+          <h2 id="work-title">Projects with <em>purpose.</em></h2>
+        </div>
+        <a class="text-link desktop-only" href="https://github.com/Sama-Ali" target="_blank" rel="noreferrer">All projects <span>↗</span></a>
+      </div>
+
+      <div id="project-cards-root"></div>
+    </section>
+
+    <section class="experience section-shell" id="experience" aria-labelledby="experience-title">
+      <div class="eyebrow" id="experience-title">03 — Experience journey</div>
+      <div class="experience-grid">
+        <h2>Learning fast.<br><em>Building faster.</em></h2>
+        <div class="timeline">
+          <article><time>2026</time><div><h3>Full-Stack Developer</h3><p>AfaaqWare</p><span>React · Laravel · Clean Architecture · Git Flow · API Integration · Agile</span></div></article>
+          <article><time>2025</time><div><h3>Frontend Developer</h3><p>Ensan Committee</p><span>Digital Transformation · Web Development</span></div></article>
+          <article><time>2024—25</time><div><h3>Full-Stack Developer</h3><p>Farfosh</p><span>Flutter · Firebase</span></div></article>
+          <article><time>2022—23</time><div><h3>Web Developer</h3><p>PSAU</p><span>Web Development Workshops</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-shell" id="contact" aria-labelledby="contact-title">
+      <div class="eyebrow">04 — Contact</div>
+      <div class="contact-main">
+        <h2 id="contact-title">Have an idea?<br><em>Let’s make it real.</em></h2>
+        <div class="contact-links">
+          <a href="mailto:samaali2h@gmail.com">Email <span>↗</span></a>
+          <a href="https://www.linkedin.com/in/sama-alhelo" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+          <a href="https://github.com/Sama-Ali" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> Sama Alhelo</span>
+    <span>Designed & built with care</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="clouds-react.js"></script>
+  <script src="projects-react.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
