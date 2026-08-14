@@ -405,3 +405,9 @@ body.is-ready .hero-personal{animation:opening-up .75s 1.36s cubic-bezier(.2,.8,
 
 /* Lightweight rendering on smaller screens */
 @media(max-width:899px){#three-scene{display:none}.cloudscape{will-change:auto}.cloud{filter:blur(9px)}.cloud-haze{filter:blur(42px)}}
+
+/* Mobile projects directory */
+.mobile-projects-link{display:none}
+@media(max-width:800px){
+  .mobile-projects-link{display:inline-flex;margin-top:46px}
+}
