@@ -14,7 +14,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.project, .timeline article, .capabilities > div').forEach((element) => observer.observe(element));
+document.querySelectorAll('.project, .timeline article, .capabilities > div, .skills-group').forEach((element) => observer.observe(element));
 
 const trackedSections = [...document.querySelectorAll('main > section[id]')];
 const indicatorLinks = [...document.querySelectorAll('.section-indicator a')];

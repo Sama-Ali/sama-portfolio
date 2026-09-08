@@ -123,4 +123,154 @@
   }, { threshold: 0.3, rootMargin: '0px 0px -4% 0px' });
   document.querySelectorAll('.contact-link-reveal').forEach((link) => contactObserver.observe(link));
 
+  // A focused, lightweight Three.js layer for the skills cards.
+  const skillsRoot = document.getElementById('skills-three');
+  if (!skillsRoot) return;
+
+  let skillsRenderer;
+  try {
+    skillsRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: false, powerPreference: 'low-power' });
+  } catch (error) {
+    skillsRoot.hidden = true;
+    return;
+  }
+
+  skillsRenderer.setClearColor(0x000000, 0);
+  skillsRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
+  skillsRoot.appendChild(skillsRenderer.domElement);
+
+  const skillsScene = new THREE.Scene();
+  const skillsCamera = new THREE.PerspectiveCamera(48, 1, 0.1, 100);
+  skillsCamera.position.z = 7;
+
+  const skillPalette = [new THREE.Color(0x31d7f5), new THREE.Color(0x9d8cff), new THREE.Color(0x168bff)];
+  const skillPointCount = 100;
+  const skillPositions = new Float32Array(skillPointCount * 3);
+  const skillColors = new Float32Array(skillPointCount * 3);
+  for (let i = 0; i < skillPointCount; i += 1) {
+    const color = skillPalette[i % skillPalette.length];
+    skillPositions[i * 3] = (Math.random() - 0.5) * 10;
+    skillPositions[i * 3 + 1] = (Math.random() - 0.5) * 6;
+    skillPositions[i * 3 + 2] = (Math.random() - 0.5) * 3;
+    skillColors[i * 3] = color.r;
+    skillColors[i * 3 + 1] = color.g;
+    skillColors[i * 3 + 2] = color.b;
+  }
+  const skillPointsGeometry = new THREE.BufferGeometry();
+  skillPointsGeometry.setAttribute('position', new THREE.BufferAttribute(skillPositions, 3));
+  skillPointsGeometry.setAttribute('color', new THREE.BufferAttribute(skillColors, 3));
+  const skillPoints = new THREE.Points(skillPointsGeometry, new THREE.PointsMaterial({
+    size: 0.035,
+    transparent: true,
+    opacity: 0.58,
+    vertexColors: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  }));
+  skillsScene.add(skillPoints);
+
+  const skillForms = new THREE.Group();
+  const formMaterial = new THREE.MeshBasicMaterial({ color: 0x31d7f5, wireframe: true, transparent: true, opacity: 0.18 });
+  const formMaterialTwo = new THREE.MeshBasicMaterial({ color: 0x9d8cff, wireframe: true, transparent: true, opacity: 0.14 });
+  const formOne = new THREE.Mesh(new THREE.IcosahedronGeometry(1.05, 1), formMaterial);
+  const formTwo = new THREE.Mesh(new THREE.OctahedronGeometry(0.8, 1), formMaterialTwo);
+  const formThree = new THREE.Mesh(new THREE.TorusKnotGeometry(0.52, 0.012, 64, 8), formMaterial);
+  formOne.position.set(-3.8, 1.1, -1.6);
+  formTwo.position.set(3.6, -1.15, -1.2);
+  formThree.position.set(0.5, 2.3, -2.1);
+  skillForms.add(formOne, formTwo, formThree);
+  skillsScene.add(skillForms);
+
+  let skillsVisible = false;
+  let skillsPointerX = 0;
+  let skillsPointerY = 0;
+  const skillCards = [...document.querySelectorAll('.skills-group')].map((card, index) => ({
+    card,
+    index,
+    tilt: new THREE.Vector2(),
+    targetTilt: new THREE.Vector2(),
+  }));
+  const skillBubbles = [...document.querySelectorAll('.skill-set b')].map((bubble, index) => ({
+    bubble,
+    index,
+    offset: new THREE.Vector3(),
+    targetOffset: new THREE.Vector3(),
+  }));
+  function resizeSkillsScene() {
+    const { width, height } = skillsRoot.getBoundingClientRect();
+    if (!width || !height) return;
+    skillsRenderer.setSize(width, height, false);
+    skillsCamera.aspect = width / height;
+    skillsCamera.updateProjectionMatrix();
+  }
+  function moveSkillsScene(event) {
+    const rect = skillsRoot.getBoundingClientRect();
+    skillsPointerX = ((event.clientX - rect.left) / rect.width - 0.5) * 0.32;
+    skillsPointerY = ((event.clientY - rect.top) / rect.height - 0.5) * 0.22;
+    skillCards.forEach((item) => item.targetTilt.set(0, 0));
+    skillBubbles.forEach((item) => item.targetOffset.set(0, 0, 0));
+    const card = event.target.closest?.('.skills-group');
+    if (!card) return;
+    const cardRect = card.getBoundingClientRect();
+    const cardX = (event.clientX - cardRect.left) / cardRect.width - 0.5;
+    const cardY = (event.clientY - cardRect.top) / cardRect.height - 0.5;
+    const cardMotion = skillCards.find((item) => item.card === card);
+    cardMotion?.targetTilt.set(-cardY * 4.5, cardX * 5.5);
+    skillBubbles.forEach((item) => {
+      if (item.bubble.closest('.skills-group') !== card) return;
+      const bubbleRect = item.bubble.getBoundingClientRect();
+      const bubbleX = bubbleRect.left + bubbleRect.width / 2;
+      const bubbleY = bubbleRect.top + bubbleRect.height / 2;
+      const distanceX = (bubbleX - event.clientX) / cardRect.width;
+      const distanceY = (bubbleY - event.clientY) / cardRect.height;
+      item.targetOffset.set(
+        THREE.MathUtils.clamp(distanceX * 13, -7, 7),
+        THREE.MathUtils.clamp(distanceY * 13, -7, 7),
+        Math.max(0, 1 - Math.hypot(distanceX, distanceY) * 1.8)
+      );
+    });
+  }
+  const skillsObserver = new IntersectionObserver((entries) => {
+    skillsVisible = entries[0].isIntersecting;
+    if (skillsVisible) resizeSkillsScene();
+  }, { threshold: 0.08 });
+  skillsObserver.observe(skillsRoot);
+  window.addEventListener('resize', resizeSkillsScene, { passive: true });
+  window.addEventListener('pointermove', moveSkillsScene, { passive: true });
+  resizeSkillsScene();
+
+  const skillsClock = new THREE.Clock();
+  function renderSkillsScene() {
+    if (skillsVisible && !document.hidden) {
+      const time = skillsClock.getElapsedTime();
+      skillPoints.rotation.y = time * 0.035 + skillsPointerX;
+      skillPoints.rotation.x += (skillsPointerY - skillPoints.rotation.x) * 0.018;
+      skillForms.rotation.y = time * 0.095 + skillsPointerX * 0.8;
+      skillForms.rotation.x += (skillsPointerY * 0.55 - skillForms.rotation.x) * 0.018;
+      formOne.rotation.x = time * 0.18;
+      formTwo.rotation.y = -time * 0.24;
+      formThree.rotation.z = time * 0.14;
+      skillCards.forEach((item) => {
+        item.tilt.x = THREE.MathUtils.lerp(item.tilt.x, item.targetTilt.x, 0.08);
+        item.tilt.y = THREE.MathUtils.lerp(item.tilt.y, item.targetTilt.y, 0.08);
+        const floatY = Math.sin(time * 1.05 + item.index * 1.7) * 1.4;
+        item.card.style.setProperty('--skills-card-y', `${floatY.toFixed(2)}px`);
+        item.card.style.setProperty('--skills-tilt-x', `${item.tilt.x.toFixed(2)}deg`);
+        item.card.style.setProperty('--skills-tilt-y', `${item.tilt.y.toFixed(2)}deg`);
+      });
+      skillBubbles.forEach((item) => {
+        item.offset.lerp(item.targetOffset, 0.11);
+        const floatX = Math.cos(time * 1.05 + item.index * 0.64) * 1.1 + item.offset.x;
+        const floatY = Math.sin(time * 1.35 + item.index * 0.86) * 2.8 + item.offset.y;
+        item.bubble.style.setProperty('--skills-bubble-x', `${floatX.toFixed(2)}px`);
+        item.bubble.style.setProperty('--skills-bubble-y', `${floatY.toFixed(2)}px`);
+        item.bubble.style.setProperty('--skills-bubble-rotate', `${(item.offset.x * 0.55).toFixed(2)}deg`);
+        item.bubble.style.setProperty('--skills-bubble-scale', (1 + item.offset.z * 0.055).toFixed(3));
+      });
+      skillsRenderer.render(skillsScene, skillsCamera);
+    }
+    requestAnimationFrame(renderSkillsScene);
+  }
+  renderSkillsScene();
+
 })();
