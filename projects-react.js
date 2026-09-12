@@ -66,7 +66,7 @@
       tags: ['Flutter', 'Firebase']
     }
   ];
-  const displayOrder = [4, 0, 2, 1, 5, 3];
+  const displayOrder = [2, 4, 0, 1, 5, 3];
 
   function Projects() {
     const [selected, setSelected] = useState(null);
