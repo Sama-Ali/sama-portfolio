@@ -46,9 +46,27 @@
       description: 'A “What’s in your fridge?” website that allows users to select ingredients and discover matching recipes.',
       tags: ['React', 'JavaScript', 'MUI', 'Recipe API'],
       github: 'https://github.com/Sama-Ali/let-sCook'
+    },
+    {
+      number: '05',
+      name: 'Irtaqi',
+      image: 'assets/projects/irtaqi.png',
+      alt: 'Irtaqi Quran practice platform with Arabic progress tracking interface',
+      summary: 'Quran practice platform',
+      description: 'A Quran practice platform with a modern Arabic-diacritics interface. It helps learners detect recitation mistakes and track their mastery over time.',
+      tags: ['React', 'TypeScript', 'Supabase', 'STT Tashkeel AI', 'Quran Foundation API']
+    },
+    {
+      number: '06',
+      name: 'Farfosh',
+      image: 'assets/projects/farfosh.png',
+      alt: 'Farfosh children community application artwork',
+      summary: 'Mobile community application',
+      description: 'A children’s community application designed to balance screen time with real-world activities through engaging, age-friendly experiences.',
+      tags: ['Flutter', 'Firebase']
     }
   ];
-  const displayOrder = [0, 2, 1, 3];
+  const displayOrder = [4, 0, 2, 1, 5, 3];
 
   function Projects() {
     const [selected, setSelected] = useState(null);
@@ -87,7 +105,7 @@
         h('button', { className: 'project-modal-close', type: 'button', onClick: () => setSelected(null), 'aria-label': 'Close project details' }, '×'),
         h('div', { className: `project-modal-image project-card-${projects.indexOf(activeProject) + 1}` },
           h('picture', null,
-            h('source', { srcSet: activeProject.webp, type: 'image/webp' }),
+            activeProject.webp && h('source', { srcSet: activeProject.webp, type: 'image/webp' }),
             h('img', { src: activeProject.image, alt: activeProject.alt, decoding: 'async' })
           )
         ),
@@ -96,9 +114,9 @@
           h('h3', { id: 'project-modal-title' }, activeProject.name),
           h('p', null, activeProject.description),
           h('div', { className: 'project-detail-tags' }, activeProject.tags.map((tag) => h('span', { key: tag }, tag))),
-          h('div', { className: 'project-detail-links' },
+          (activeProject.live || activeProject.github) && h('div', { className: 'project-detail-links' },
             activeProject.live && h('a', { href: activeProject.live, target: '_blank', rel: 'noreferrer' }, h('span', null, 'Live site'), h('i', { 'aria-hidden': 'true' }, '↗')),
-            h('a', { href: activeProject.github, target: '_blank', rel: 'noreferrer' }, h('span', null, 'GitHub'), h('i', { 'aria-hidden': 'true' }, '↗'))
+            activeProject.github && h('a', { href: activeProject.github, target: '_blank', rel: 'noreferrer' }, h('span', null, 'GitHub'), h('i', { 'aria-hidden': 'true' }, '↗'))
           )
         )
       )
@@ -119,7 +137,7 @@
           },
             h('span', { className: 'project-card-image' },
               h('picture', null,
-                h('source', { srcSet: project.webp, type: 'image/webp' }),
+                project.webp && h('source', { srcSet: project.webp, type: 'image/webp' }),
                 h('img', { src: project.image, alt: project.alt, loading: displayIndex > 0 ? 'lazy' : 'eager', decoding: 'async', fetchPriority: displayIndex === 0 ? 'high' : 'low' })
               ),
               h('span', { className: 'project-card-shade' })

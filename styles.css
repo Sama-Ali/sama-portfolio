@@ -172,6 +172,8 @@ body.is-ready .hero-role{animation:opening-up .65s 1s cubic-bezier(.2,.8,.2,1) b
 .project-card-2 .project-card-image{background:#000}
 .project-card-3 .project-card-image{background:linear-gradient(90deg,#a452ef 0 50%,#20c463 50%)}
 .project-card-4 .project-card-image{background:#f287df}
+.project-card-5 .project-card-image{background:#f8f4e9}
+.project-card-6 .project-card-image{background:#20afa4}
 .project-card:hover .project-card-image img,.project-card.is-active .project-card-image img{filter:saturate(1.04) contrast(1.02)!important}
 
 /* Project modal and retired layout cleanup */
@@ -183,7 +185,7 @@ body.is-ready .hero-role{animation:opening-up .65s 1s cubic-bezier(.2,.8,.2,1) b
 .project-modal-close:hover{background:var(--accent-gradient);color:#071019;transform:rotate(90deg)}
 .project-modal-image{height:min(48vh,470px);display:grid;place-items:center;overflow:hidden}
 .project-modal-image img{width:100%;height:100%;object-fit:contain;display:block}
-.project-modal-image.project-card-1{background:#f8f9fb}.project-modal-image.project-card-2{background:#000}.project-modal-image.project-card-3{background:linear-gradient(90deg,#a452ef 0 50%,#20c463 50%)}.project-modal-image.project-card-4{background:#f287df}
+.project-modal-image.project-card-1{background:#f8f9fb}.project-modal-image.project-card-2{background:#000}.project-modal-image.project-card-3{background:linear-gradient(90deg,#a452ef 0 50%,#20c463 50%)}.project-modal-image.project-card-4{background:#f287df}.project-modal-image.project-card-5{background:#f8f4e9}.project-modal-image.project-card-6{background:#20afa4}
 .project-modal-content{padding:34px 38px 38px}.project-modal-content h3{font-size:clamp(32px,4vw,52px);letter-spacing:-.05em;line-height:1;margin:0 0 16px}.project-modal-content>p:not(.project-detail-label){max-width:760px;color:#adb7c3;font-size:15px;line-height:1.75;margin:0}.project-modal-content .project-detail-links{flex-direction:row;align-items:center;justify-content:flex-start;margin-top:26px}
 @keyframes modal-backdrop-in{from{opacity:0}to{opacity:1}}
 @keyframes modal-card-in{from{opacity:0;transform:translateY(24px) scale(.975)}to{opacity:1;transform:none}}
