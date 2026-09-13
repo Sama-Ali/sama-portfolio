@@ -22,7 +22,8 @@
       summary: 'Exercise from home',
       description: 'A modern fitness web application for discovering more than 1,000 exercises by body part, target muscle, and equipment through a focused responsive interface.',
       tags: ['Next.js', 'React', 'REST API'],
-      github: 'https://github.com/Sama-Ali/keepFit'
+      github: 'https://github.com/Sama-Ali/keepFit',
+      live: 'https://keep-fit-feel-better.vercel.app/'
     },
     {
       number: '03',
@@ -45,7 +46,8 @@
       summary: 'Ingredient-based recipe',
       description: 'A “What’s in your fridge?” website that allows users to select ingredients and discover matching recipes.',
       tags: ['React', 'JavaScript', 'MUI', 'Recipe API'],
-      github: 'https://github.com/Sama-Ali/let-sCook'
+      github: 'https://github.com/Sama-Ali/let-sCook',
+      live: 'https://let-s-cook-recipes.vercel.app/'
     },
     {
       number: '05',
