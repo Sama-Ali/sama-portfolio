@@ -79,12 +79,13 @@
     {
       number: '08',
       name: 'SurveyLand',
-      image: 'assets/projects/surveyland.svg',
+      image: 'assets/projects/surveyland.jpeg',
       alt: 'SurveyLand survey creation and insights platform',
       summary: 'Survey management platform',
-      description: 'A collaborative web platform for creating and publishing surveys, managing questions, collecting responses, and exporting results.',
+      description: 'Web platform for creating and publishing surveys, managing questions, collecting responses, and exporting results.',
       tags: ['Next.js', 'React', 'TypeScript', 'REST APIs', 'Atomic Design', 'Clean Architecture'],
-      live: 'https://surveyland-r8.vercel.app'
+      live: 'https://surveyland-r8.vercel.app',
+      github: 'https://github.com/Sama-Ali/SurveyLand'
     }
   ];
   const displayOrder = [2, 4, 0, 1, 5, 3, 6, 7];
