@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">TabbyEvents</title><desc id="desc">Budget planner for shared events</desc>
+  <defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#141531"/><stop offset=".52" stop-color="#5d4ee5"/><stop offset="1" stop-color="#20c8af"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="28"/></filter></defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><circle cx="1380" cy="126" r="220" fill="#ffbf70" opacity=".34" filter="url(#glow)"/><circle cx="242" cy="740" r="260" fill="#9f85ff" opacity=".28" filter="url(#glow)"/>
+  <g fill="none" stroke="#fff" stroke-opacity=".28"><rect x="135" y="140" width="1330" height="620" rx="38"/><path d="M135 290h1330"/></g>
+  <text x="225" y="238" fill="#fff" font-family="Arial, sans-serif" font-size="36" letter-spacing="10">TABBYEVENTS</text>
+  <text x="225" y="410" fill="#fff" font-family="Arial, sans-serif" font-size="91" font-weight="700">Plan together.</text><text x="225" y="507" fill="#fff" font-family="Arial, sans-serif" font-size="91" font-weight="700">Spend smarter.</text>
+  <g transform="translate(1050 365)"><circle cx="135" cy="135" r="132" fill="#fff" fill-opacity=".16"/><circle cx="135" cy="135" r="93" fill="#fff" fill-opacity=".18"/><path d="M135 55v80l66 42" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="135" cy="135" r="11" fill="#fff"/></g>
+  <text x="225" y="660" fill="#e9eaff" font-family="Arial, sans-serif" font-size="29">EVENT BUDGETING  •  SHARED EXPENSES  •  CLEAR DECISIONS</text>
+</svg>

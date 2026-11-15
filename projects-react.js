@@ -66,9 +66,28 @@
       summary: 'Mobile community application',
       description: 'A children’s community application designed to balance screen time with real-world activities through engaging, age-friendly experiences.',
       tags: ['Flutter', 'Firebase']
+    },
+    {
+      number: '07',
+      name: 'TabbyEvents',
+      image: 'assets/projects/tabby-events.svg',
+      alt: 'TabbyEvents shared occasion budget planning concept',
+      summary: 'Shared event budgeting',
+      description: 'A product concept for planning an occasion budget — from travel and weddings to any personal or shared plan. It helps people see the complete cost, remaining budget, and each person’s share before and as expenses are added.',
+      tags: ['Product Design', 'UX Design', 'Financial Planning']
+    },
+    {
+      number: '08',
+      name: 'SurveyLand',
+      image: 'assets/projects/surveyland.svg',
+      alt: 'SurveyLand survey creation and insights platform',
+      summary: 'Survey management platform',
+      description: 'A collaborative web platform for creating and publishing surveys, managing questions, collecting responses, and exporting results.',
+      tags: ['Next.js', 'React', 'TypeScript', 'REST APIs', 'Atomic Design', 'Clean Architecture'],
+      live: 'https://surveyland-r8.vercel.app'
     }
   ];
-  const displayOrder = [2, 4, 0, 1, 5, 3];
+  const displayOrder = [2, 4, 0, 1, 5, 3, 6, 7];
 
   function Projects() {
     const [selected, setSelected] = useState(null);
