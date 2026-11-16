@@ -35,8 +35,13 @@ function updateScrollDetails() {
 
   if (timeline) {
     const rect = timeline.getBoundingClientRect();
-    const progress = Math.min(1, Math.max(0, (window.innerHeight * .72 - rect.top) / (rect.height + window.innerHeight * .3)));
+    const activationLine = window.innerHeight * .72;
+    const progress = Math.min(1, Math.max(0, (activationLine - rect.top) / (rect.height + window.innerHeight * .3)));
     timeline.style.setProperty('--timeline-progress', progress.toFixed(3));
+    timeline.querySelectorAll('article').forEach((entry) => {
+      const markerPosition = entry.getBoundingClientRect().top + 36;
+      entry.classList.toggle('is-timeline-active', markerPosition <= activationLine);
+    });
   }
 }
 

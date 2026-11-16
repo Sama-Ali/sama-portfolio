@@ -346,7 +346,7 @@ body.is-ready .hero-personal{animation:opening-up .75s 1.36s cubic-bezier(.2,.8,
 .timeline article{grid-template-columns:165px minmax(0,1fr)}
 .timeline time{white-space:nowrap}
 .timeline article::before{content:"";position:absolute;z-index:2;left:-35px;top:32px;width:9px;height:9px;border:2px solid #687586;border-radius:50%;background:var(--bg);transition:border-color .4s,background .4s,box-shadow .4s,transform .4s}
-.timeline article.three-reveal-visible::before{border-color:var(--accent-mid);background:var(--accent);box-shadow:0 0 0 5px rgba(49,215,245,.08),0 0 16px rgba(49,215,245,.32)}
+.timeline article.three-reveal-visible::before,.timeline article.is-timeline-active::before{border-color:var(--accent-mid);background:var(--accent);box-shadow:0 0 0 5px rgba(49,215,245,.08),0 0 16px rgba(49,215,245,.32)}
 .timeline article:hover::before{transform:scale(1.35)}
 
 @media(max-width:800px){
