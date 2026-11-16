@@ -89,7 +89,7 @@
       github: 'https://github.com/Sama-Ali/SurveyLand'
     }
   ];
-  const displayOrder = [2, 4, 0, 1, 5, 3, 6, 7];
+  const displayOrder = [6, 7, 2, 4, 0, 1, 5, 3];
 
   function Projects() {
     const [selected, setSelected] = useState(null);
