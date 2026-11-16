@@ -70,11 +70,12 @@
     {
       number: '07',
       name: 'TabbyEvents',
-      image: 'assets/projects/tabby-events.svg',
+      image: 'assets/projects/tabby-events.jpeg',
       alt: 'TabbyEvents shared occasion budget planning concept',
       summary: 'Shared event budgeting',
-      description: 'A product concept for planning an occasion budget — from travel and weddings to any personal or shared plan. It helps people see the complete cost, remaining budget, and each person’s share before and as expenses are added.',
-      tags: ['Product Design', 'UX Design', 'Financial Planning']
+      description: 'Tabby Events is a proposed feature enhancement for Tabby that helps users discover suitable services, manage budgets, and organize expenses for events and trips. It simplifies decision-making by recommending options that match users’ needs and budgets, making event planning easier and more affordable.',
+      tags: ['User Interface Design', 'User Experience', 'React.js'],
+      live: 'https://claude.ai/artifact/GNx8y8AnFdF4ZuPas9qyU2#1'
     },
     {
       number: '08',
@@ -82,7 +83,7 @@
       image: 'assets/projects/surveyland.jpeg',
       alt: 'SurveyLand survey creation and insights platform',
       summary: 'Survey management platform',
-      description: 'Web platform for creating and publishing surveys, managing questions, collecting responses, and exporting results.',
+      description: 'Web platform for creating and publishing surveys, managing questions, collecting responses, exporting results, and generating export files.',
       tags: ['Next.js', 'React', 'TypeScript', 'REST APIs', 'Atomic Design', 'Clean Architecture'],
       live: 'https://surveyland-r8.vercel.app',
       github: 'https://github.com/Sama-Ali/SurveyLand'
